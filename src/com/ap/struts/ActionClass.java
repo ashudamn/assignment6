@@ -1,6 +1,5 @@
 package com.ap.struts;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
 public class ActionClass extends ActionSupport{
