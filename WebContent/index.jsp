@@ -7,15 +7,49 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Northwind Using Struts2</title>
 </head>
+<script type="text/javascript">
+function validateFields(){
+	var driver=document.getElementByName('driver').value;
+	var url=document.getElementByName('url').value;
+	var username=document.getElementByName('username').value;
+	var password=document.getElementByName('password').value;
+	var query=document.getElementByName('query').value;
+	if(driver==""||driver==null){
+		alert("Driver name is required");
+		return false;
+	}
+	if(url==""||url==null){
+		alert("URL is required");
+		return false;
+	}
+	if(username==""||username==null){
+		alert("username is required");
+		return false;
+	}
+	if(password==""||password==null){
+		alert("password is required");
+		return false;
+	}
+	if(password.length<8){
+		alert("password length musy be greater than or equal to 8");
+		return false;
+	}
+	if(query==""||query==null){
+		alert("query cannot be null");
+		return false;
+	}
+	return true;
+}
+</script>
 <body>
 <font color="red"><s:property value="errorMessage"></s:property></font><br>
 <s:form action="accessDB">
-<s:textfield name="driver" label="Driver"></s:textfield>
-<s:textfield name="url" label="Url"></s:textfield>
-<s:textfield name="username" label="Username"></s:textfield>
-<s:password name="password" label="Password"></s:password>
+<s:textfield name="driver" label="Driver" value="com.mysql.jdbc.Driver" ></s:textfield>
+<s:textfield name="url" label="Url" value="jdbc:mysql://localhost:3306/northwind"></s:textfield>
+<s:textfield name="username" label="Username" value="root"></s:textfield>
+<s:password name="password" label="Password" ></s:password>
 <s:textfield name="query" label="Query"></s:textfield>
-<s:submit value="save"></s:submit>
+<s:submit value="submit"></s:submit>
 </s:form>
 </body>
 </html>

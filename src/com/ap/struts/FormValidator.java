@@ -1,7 +1,5 @@
 package com.ap.struts;
 
-import java.sql.SQLException;
-
 public class FormValidator {
 	private String message;
 	public FormValidator()
@@ -10,41 +8,32 @@ public class FormValidator {
 	}
 	public boolean validate(String driver,String url,String username,String password,String query)
 	{
-		if(driver.isEmpty())
+		if(driver==null||driver.isEmpty())
 		{
 			setMessage("driver name is required");
 			return false;
 		}
-		if(url.isEmpty())
+		if(url==null||url.isEmpty())
 		{
 			setMessage("url is required");
 			return false;
 		}
-		if(username.isEmpty())
+		if(username==null||username.isEmpty())
 		{
 			setMessage("username is required");
 			return false;
 		}
-		if(password.isEmpty())
+		if(password==null||password.isEmpty())
 		{
 			setMessage("password is required");
 			return false;
 		}
-		if(query.isEmpty())
+		if(query==null||query.isEmpty())
 		{
 			setMessage("query cannot be empty");
 			return false;
 		}
-		try {
-			//accessing Database
-			AccessDB.connect2DB(driver, url, username, password, query);
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			String error=e.getMessage();
-			setMessage(error);
-			e.printStackTrace();
-			return false;
+		
 			/*if(error.contains("ClassNotFound"))
 			{
 				setMessage("Incorrect Driver");
@@ -75,7 +64,6 @@ public class FormValidator {
 				setMessage(e.toString());
 			}
 			*/
-		}
 		
 		return true;
 	}
