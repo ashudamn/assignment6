@@ -1,7 +1,7 @@
 package com.ap.struts;
 
 import java.util.ArrayList;
-import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.*;
 public class ActionClass extends ActionSupport{
 /**
 	 * 

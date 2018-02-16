@@ -2,16 +2,6 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 <package name="default" extends="struts-default">
-<interceptors>
-<interceptor-stack name="defaultStack">
-   <interceptor-ref name="validation">
-      <param name="excludeMethods">input,back,cancel,browse</param>
-   </interceptor-ref>
-   <interceptor-ref name="workflow">
-      <param name="excludeMethods">input,back,cancel,browse</param>
-   </interceptor-ref>
-</interceptor-stack>
-</interceptors>
 <action name="accessDB" class="com.ap.struts.ActionClass">
 <result name="success">/success.jsp</result>
 <result name="failure">/index.jsp</result>
